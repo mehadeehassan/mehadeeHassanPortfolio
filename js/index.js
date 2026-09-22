@@ -8,25 +8,25 @@
    ক্লিক করলে আগের মতো ছোট হয়ে যায়।
    ============================================================ */
 function initExpandableDescriptions(scope) {
-  (scope || document).querySelectorAll(".custom-card p.text-muted").forEach((description) => {
+  (scope || document).querySelectorAll('.custom-card p.text-muted').forEach((description) => {
     // ছোট অবস্থায় (৪ লাইন clamp) রাখার জন্য ক্লাস যোগ করা হচ্ছে
-    description.classList.add("expandable-description");
+    description.classList.add('expandable-description');
 
     // "See More" বাটন dynamically তৈরি করা হচ্ছে
-    const toggleButton = document.createElement("button");
-    toggleButton.type = "button";
-    toggleButton.className = "see-more-btn";
-    toggleButton.textContent = "See More";
-    toggleButton.setAttribute("aria-expanded", "false");
+    const toggleButton = document.createElement('button');
+    toggleButton.type = 'button';
+    toggleButton.className = 'see-more-btn';
+    toggleButton.textContent = 'See More';
+    toggleButton.setAttribute('aria-expanded', 'false');
 
     // description এর ঠিক পরেই বাটনটা বসানো হচ্ছে
-    description.insertAdjacentElement("afterend", toggleButton);
+    description.insertAdjacentElement('afterend', toggleButton);
 
     // ক্লিক করলে expand/collapse টগল হবে
-    toggleButton.addEventListener("click", () => {
-      const isExpanded = description.classList.toggle("is-expanded");
-      toggleButton.textContent = isExpanded ? "See Less" : "See More";
-      toggleButton.setAttribute("aria-expanded", String(isExpanded));
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = description.classList.toggle('is-expanded');
+      toggleButton.textContent = isExpanded ? 'See Less' : 'See More';
+      toggleButton.setAttribute('aria-expanded', String(isExpanded));
     });
   });
 }
@@ -40,7 +40,7 @@ function initExpandableDescriptions(scope) {
    অন্য পেজে গেলেও একই থিম মনে থাকে।
    ============================================================ */
 (function () {
-  var STORAGE_KEY = "theme"; // localStorage এ থিম সেভ রাখার key
+  var STORAGE_KEY = 'theme'; // localStorage এ থিম সেভ রাখার key
 
   // আগে সেভ করা থিম (dark/light) localStorage থেকে পড়া হচ্ছে
   function getSavedTheme() {
@@ -64,25 +64,25 @@ function initExpandableDescriptions(scope) {
   // <html> ট্যাগে data-theme="dark" বসিয়ে/সরিয়ে থিম পাল্টানো হয়
   // (CSS এ [data-theme="dark"] সিলেক্টর দিয়ে রঙ পরিবর্তন হয়)
   function applyTheme(theme) {
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.removeAttribute("data-theme");
+      document.documentElement.removeAttribute('data-theme');
     }
   }
 
   // toggle বাটনে ক্লিক ইভেন্ট বসানো হচ্ছে
   function initToggle() {
-    var toggleBtn = document.getElementById("darkModeToggle");
+    var toggleBtn = document.getElementById('darkModeToggle');
     if (!toggleBtn) {
       // এই পেজে টগল বাটন না থাকলে সতর্ক বার্তা (ভুল খুঁজতে সাহায্য করবে)
-      console.warn("Dark mode: #darkModeToggle button not found on this page.");
+      console.warn('Dark mode: #darkModeToggle button not found on this page.');
       return;
     }
 
-    toggleBtn.addEventListener("click", function () {
-      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      var newTheme = isDark ? "light" : "dark";
+    toggleBtn.addEventListener('click', function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var newTheme = isDark ? 'light' : 'dark';
       applyTheme(newTheme);
       saveTheme(newTheme);
     });
@@ -90,8 +90,8 @@ function initExpandableDescriptions(scope) {
 
   // script কে body এর শেষে রাখলেও যেন সমস্যা না হয়,
   // তাই DOM রেডি কিনা চেক করে তারপর initToggle() চালানো হচ্ছে
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initToggle);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToggle);
   } else {
     initToggle();
   }
@@ -109,22 +109,22 @@ function initExpandableDescriptions(scope) {
    ============================================================ */
 (function () {
   // শুধু "real mouse" থাকা ডিভাইসেই ইফেক্ট চালু হবে (মোবাইল/ট্যাব বাদ)
-  const canUseCursorTrail = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const canUseCursorTrail = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   // ইউজার যদি সিস্টেমে "reduce motion" চালু রাখে, তাহলে animation বন্ধ রাখা হচ্ছে
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!canUseCursorTrail || reducedMotion) return;
 
   // ---- ইফেক্টের জন্য প্রয়োজনীয় HTML এলিমেন্ট তৈরি ----
 
   // সব particle আর ring রাখার জন্য একটা fixed, full-screen container
-  const container = document.createElement("div");
-  container.className = "cursor-smoke-container";
-  container.setAttribute("aria-hidden", "true"); // স্ক্রিন রিডারের জন্য এটা গুরুত্বপূর্ণ না
+  const container = document.createElement('div');
+  container.className = 'cursor-smoke-container';
+  container.setAttribute('aria-hidden', 'true'); // স্ক্রিন রিডারের জন্য এটা গুরুত্বপূর্ণ না
   document.body.appendChild(container);
 
   // কার্সারকে follow করা glowing রিং
-  const cursorRing = document.createElement("span");
-  cursorRing.className = "cursor-ring";
+  const cursorRing = document.createElement('span');
+  cursorRing.className = 'cursor-ring';
   container.appendChild(cursorRing);
 
   // ---- অবস্থা (state) রাখার ভ্যারিয়েবলগুলো ----
@@ -152,8 +152,8 @@ function initExpandableDescriptions(scope) {
   function addParticle(x, y, velocity) {
     if (particles.length >= 24) return; // পারফরম্যান্সের জন্য সর্বোচ্চ ২৪টা particle
 
-    const element = document.createElement("span");
-    element.className = "cursor-smoke-particle";
+    const element = document.createElement('span');
+    element.className = 'cursor-smoke-particle';
 
     const size = 7 + Math.random() * 9; // random সাইজ (৭-১৬px)
     const life = 420 + Math.random() * 260; // random আয়ু (মিলিসেকেন্ডে)
@@ -202,7 +202,7 @@ function initExpandableDescriptions(scope) {
 
   // মাউস নড়াচড়া করলে এই ইভেন্ট চলে
   window.addEventListener(
-    "pointermove",
+    'pointermove',
     (event) => {
       targetX = event.clientX;
       targetY = event.clientY;
@@ -211,7 +211,7 @@ function initExpandableDescriptions(scope) {
       if (!hasPointer) {
         ringX = targetX;
         ringY = targetY;
-        cursorRing.classList.add("is-visible");
+        cursorRing.classList.add('is-visible');
       }
 
       const distance = hasPointer ? Math.hypot(event.clientX - lastX, event.clientY - lastY) : 0;
@@ -252,84 +252,115 @@ function initExpandableDescriptions(scope) {
 (function () {
   const PROJECTS = [
     {
-      logo: "https://shops-mehadee-hassan.vercel.app/assets/Logo-BPTDrPQZ.png",
-      alt: "Shops",
-      title: "Shops",
+      logo: 'https://shops-mehadee-hassan.vercel.app/assets/Logo-BPTDrPQZ.png',
+      alt: 'Shops',
+      title: 'Shops',
       description:
-        "এটি একটি আধুনিক ফুল-স্ট্যাক ই-কমার্স প্ল্যাটফর্ম, যেখানে গ্রাহকরা সহজে প্রোডাক্ট ব্রাউজ, সার্চ ও অর্ডার করতে পারেন, আর অ্যাডমিনরা একটি সুরক্ষিত ড্যাশবোর্ড থেকে পুরো ইনভেন্টরি নিয়ন্ত্রণ করতে পারেন। ফ্রন্টএন্ড তৈরি হয়েছে React ও Redux Toolkit দিয়ে, যেখানে Tailwind CSS ব্যবহার করে একটি ক্লিন ও রেসপনসিভ ইউজার ইন্টারফেস ডিজাইন করা হয়েছে। ব্যাকএন্ড Node.js, Express ও Sequelize ORM দিয়ে তৈরি, MySQL ডাটাবেসের সাথে সংযুক্ত এবং JWT-ভিত্তিক অথেন্টিকেশন সিস্টেম ব্যবহার করে অ্যাডমিন ও ইউজার অ্যাক্সেস নিয়ন্ত্রণ করা হয়। প্রোডাক্ট ইমেজ আপলোড ও ম্যানেজমেন্টের জন্য Cloudinary ব্যবহার করা হয়েছে, এবং প্রজেক্টটি Render ও Vercel-এ ডিপ্লয় করে ক্লাউড-হোস্টেড MySQL ডাটাবেসের (Aiven) সাথে যুক্ত করা হয়েছে।",
-      link: "https://shops-mehadee-hassan.vercel.app",
+        'এটি একটি আধুনিক ফুল-স্ট্যাক ই-কমার্স প্ল্যাটফর্ম, যেখানে গ্রাহকরা সহজে প্রোডাক্ট ব্রাউজ, সার্চ ও অর্ডার করতে পারেন, আর অ্যাডমিনরা একটি সুরক্ষিত ড্যাশবোর্ড থেকে পুরো ইনভেন্টরি নিয়ন্ত্রণ করতে পারেন। ফ্রন্টএন্ড তৈরি হয়েছে React ও Redux Toolkit দিয়ে, যেখানে Tailwind CSS ব্যবহার করে একটি ক্লিন ও রেসপনসিভ ইউজার ইন্টারফেস ডিজাইন করা হয়েছে। ব্যাকএন্ড Node.js, Express ও Sequelize ORM দিয়ে তৈরি, MySQL ডাটাবেসের সাথে সংযুক্ত এবং JWT-ভিত্তিক অথেন্টিকেশন সিস্টেম ব্যবহার করে অ্যাডমিন ও ইউজার অ্যাক্সেস নিয়ন্ত্রণ করা হয়। প্রোডাক্ট ইমেজ আপলোড ও ম্যানেজমেন্টের জন্য Cloudinary ব্যবহার করা হয়েছে, এবং প্রজেক্টটি Render ও Vercel-এ ডিপ্লয় করে ক্লাউড-হোস্টেড MySQL ডাটাবেসের (Aiven) সাথে যুক্ত করা হয়েছে।',
+      link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
-      logo: "/images/favicon.svg",
-      alt: "Dev Stack logo",
-      title: "Dev Stack",
+      logo: '/images/favicon.svg',
+      alt: 'Dev Stack logo',
+      title: 'Dev Stack',
       description:
-        "এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ ডেভেলপার টেকনোলজি এক্সপ্লোরিং প্ল্যাটফর্ম, যেখানে ডেভেলপাররা Frontend, Backend, Database, Programming Language, Styling এবং DevOps-এর বিভিন্ন টেকনোলজি সম্পর্কে জানতে এবং নিজেদের পছন্দের টেকনোলজি দিয়ে একটি Personal Development Stack তৈরি করতে পারেন। প্রতিটি টেকনোলজির Rating ও Difficulty Level দেখার পাশাপাশি পছন্দের টেকনোলজি সহজেই Stack-এ যুক্ত এবং ম্যানেজ করা যায়। প্রজেক্টটি React.js দিয়ে তৈরি করা হয়েছে এবং Local JSON Dataset ব্যবহার করে ডায়নামিকভাবে টেকনোলজি ডেটা প্রদর্শন করা হয়েছে। Responsive Design, Reusable Components এবং Interactive UI-এর মাধ্যমে ডেভেলপারদের জন্য একটি সহজ, দ্রুত ও সুন্দর user experience নিশ্চিত করা হয়েছে।",
-      link: "https://dev-stack-eta.vercel.app/",
+        'এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ ডেভেলপার টেকনোলজি এক্সপ্লোরিং প্ল্যাটফর্ম, যেখানে ডেভেলপাররা Frontend, Backend, Database, Programming Language, Styling এবং DevOps-এর বিভিন্ন টেকনোলজি সম্পর্কে জানতে এবং নিজেদের পছন্দের টেকনোলজি দিয়ে একটি Personal Development Stack তৈরি করতে পারেন। প্রতিটি টেকনোলজির Rating ও Difficulty Level দেখার পাশাপাশি পছন্দের টেকনোলজি সহজেই Stack-এ যুক্ত এবং ম্যানেজ করা যায়। প্রজেক্টটি React.js দিয়ে তৈরি করা হয়েছে এবং Local JSON Dataset ব্যবহার করে ডায়নামিকভাবে টেকনোলজি ডেটা প্রদর্শন করা হয়েছে। Responsive Design, Reusable Components এবং Interactive UI-এর মাধ্যমে ডেভেলপারদের জন্য একটি সহজ, দ্রুত ও সুন্দর user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://dev-stack-eta.vercel.app/',
     },
     {
-      logo: "https://bpl-dream11-two.vercel.app/assets/Group%201-DE68HT7x.png",
-      alt: "BPL CricBid logo",
-      title: "BPL CricBid",
+      logo: 'https://hero-io-gamma.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Flogo.1wrs3ds2-8_su.png&w=48&q=75',
+      alt: 'HERO.IO logo',
+      title: 'HERO.IO',
       description:
-        "এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ BPL Player Auction Management Web Application, যেখানে ব্যবহারকারীরা বিভিন্ন ক্রিকেটার সম্পর্কে বিস্তারিত তথ্য দেখতে এবং পছন্দের খেলোয়াড়দের একটি নির্দিষ্ট বাজেটের মধ্যে তাদের স্কোয়াডে যুক্ত করতে পারেন। প্রজেক্টটিতে Available Players ও Selected Players আলাদাভাবে ম্যানেজ করার সুবিধা রয়েছে এবং প্রতিটি খেলোয়াড়ের মূল্য ও নির্বাচনের তথ্য ডায়নামিকভাবে পরিচালনা করা হয়েছে। React.js এবং TypeScript ব্যবহার করে অ্যাপ্লিকেশনটি তৈরি করা হয়েছে, যেখানে Tailwind CSS দিয়ে রেসপনসিভ ও আধুনিক UI ডিজাইন করা হয়েছে। Player Selection, Budget Management, Toast Notification এবং Interactive Components-এর মাধ্যমে একটি বাস্তবসম্মত ক্রিকেট Player Auction-এর অভিজ্ঞতা দেওয়ার চেষ্টা করা হয়েছে।",
-      link: "https://bpl-dream11-two.vercel.app/",
+        'এটি একটি আধুনিক ও responsive App Explorer platform, যেখানে ব্যবহারকারীরা বিভিন্ন application browse, search ও category অনুযায়ী filter করতে পারেন এবং প্রতিটি app-এর বিস্তারিত তথ্য দেখতে পারেন। App details page-এ application logo, developer information, description, rating, reviews, downloads ও size-এর মতো গুরুত্বপূর্ণ তথ্য প্রদর্শন করা হয়। ব্যবহারকারীরা পছন্দের application install করে নিজেদের personal app collection তৈরি করতে পারেন এবং Installed Apps section থেকে installed applications manage বা uninstall করতে পারেন। Installed apps size অনুযায়ী ascending ও descending order-এ sort করার সুবিধাও রয়েছে। প্রজেক্টটি Next.js ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে responsive ও modern UI তৈরি করা হয়েছে। React Context API ও React Hooks ব্যবহার করে application installation state management করা হয়েছে এবং React Toastify ব্যবহার করে installation ও uninstall-এর মতো user actions-এর জন্য instant notifications দেওয়া হয়েছে।',
+      link: 'https://hero-io-gamma.vercel.app',
     },
     {
-      logo: "/images/download.svg",
-      alt: "Coding Mind logo",
-      title: "Coding Mind",
-      description: "এটি একটি আধুনিক এবং ফ্রি মক এপিআই (Mock API) ম্যানেজমেন্ট প্ল্যাটফর্ম। ফ্রন্টএন্ড এবং ব্যাকএন্ড ডেভেলপারদের কাজের গতি বাড়াতে এটি তৈরি করা হয়েছে। এর মাধ্যমে কোনো ব্যাকএন্ড কোড ছাড়াই আনলিমিটেড প্রজেক্ট ও এন্ডপয়েন্ট তৈরি করা, ডায়নামিক রেসপন্স কনফিগার করা, ফেক ডেটা জেনারেট করা এবং এরর/ডিলে সিমুলেট করার মতো দারুণ সব ফিচার ব্যবহার করা যায়। পুরো ল্যান্ডিং পেজটি Tailwind CSS দিয়ে চমৎকারভাবে ডিজাইন করা হয়েছে।",
-      link: "https://coding-mind-mehadee-hassan.vercel.app/",
+      logo: 'https://book-vibe-beryl-six.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffavicon.0_5n8vrnywfp4.png&w=48&q=75',
+      alt: 'Book Vibe logo',
+      title: 'Book Vibe',
+      description:
+        'এটি একটি আধুনিক ও ইন্টারঅ্যাক্টিভ বই ম্যানেজমেন্ট এবং রিডিং ট্র্যাকিং প্ল্যাটফর্ম, যেখানে ব্যবহারকারীরা বিভিন্ন বই ব্রাউজ করতে, বিস্তারিত তথ্য দেখতে এবং নিজেদের reading journey ম্যানেজ করতে পারেন। প্রতিটি বইয়ের author, rating, review, category, tags, total pages, publisher এবং publication year-এর মতো বিস্তারিত তথ্য দেখার সুবিধা রয়েছে। ব্যবহারকারীরা বইকে Read List অথবা Wishlist-এ যুক্ত করতে পারেন এবং নিজের লাইব্রেরিতে থাকা বইগুলো rating, pages ও publishing year অনুযায়ী sort করতে পারেন। প্রজেক্টটি Next.js ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে responsive ও modern UI তৈরি করা হয়েছে। React Context API ব্যবহার করে reading list ও wishlist-এর client-side state management করা হয়েছে এবং React Toastify ও Recharts-এর মাধ্যমে interactive feedback ও data visualization-এর সুবিধা যুক্ত করা হয়েছে।',
+      link: 'https://book-vibe-beryl-six.vercel.app',
     },
     {
-      logo: "/images/favicon-Bx60cIKr.png",
-      alt: "Code Fight logo",
-      title: "Code Fight",
-      description: "এটি একটি আধুনিক ব্লগিং প্ল্যাটফর্ম যেখানে ব্যবহারকারীরা বিভিন্ন বিষয়ে ব্লগ পড়তে পারেন। এটি একটি ফুল-স্ট্যাক ওয়েব অ্যাপ্লিকেশন যা রেসপনসিভ ডিজাইনের মাধ্যমে তৈরি করা হয়েছে।",
-      link: "https://blog-project-eight-pi.vercel.app/",
+      logo: '/images/movie.png',
+      alt: 'MarqueeReel logo',
+      title: 'MarqueeReel',
+      description:
+        'এটি একটি আধুনিক ও responsive Movie & TV Show Explorer platform, যেখানে ব্যবহারকারীরা বিভিন্ন TV show browse, search এবং বিস্তারিত তথ্য দেখতে পারেন। TVMaze API ব্যবহার করে real-time show data fetch করা হয়েছে এবং title অনুযায়ী live search-এর সুবিধা যুক্ত করা হয়েছে। প্রতিটি show-এর poster, rating, premiere year এবং অন্যান্য গুরুত্বপূর্ণ তথ্য card আকারে প্রদর্শন করা হয়েছে। Details modal-এর মাধ্যমে show-এর summary, genre, network, status ও runtime-এর মতো বিস্তারিত তথ্য দেখা যায়। প্রজেক্টটি React.js ও React Router দিয়ে তৈরি করা হয়েছে এবং Tailwind CSS ব্যবহার করে একটি modern, responsive ও cinema-inspired UI তৈরি করা হয়েছে। Reusable components, React Hooks, API integration, loading ও error state handling এবং keyboard-friendly modal interaction ব্যবহার করে একটি smooth user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://marqueereel.vercel.app',
     },
     {
-      logo: "https://nature-s-platter-three.vercel.app/img/Vector.png",
+      logo: 'https://bpl-dream11-two.vercel.app/assets/Group%201-DE68HT7x.png',
+      alt: 'BPL CricBid logo',
+      title: 'BPL CricBid',
+      description:
+        'এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ BPL Player Auction Management Web Application, যেখানে ব্যবহারকারীরা বিভিন্ন ক্রিকেটার সম্পর্কে বিস্তারিত তথ্য দেখতে এবং পছন্দের খেলোয়াড়দের একটি নির্দিষ্ট বাজেটের মধ্যে তাদের স্কোয়াডে যুক্ত করতে পারেন। প্রজেক্টটিতে Available Players ও Selected Players আলাদাভাবে ম্যানেজ করার সুবিধা রয়েছে এবং প্রতিটি খেলোয়াড়ের মূল্য ও নির্বাচনের তথ্য ডায়নামিকভাবে পরিচালনা করা হয়েছে। React.js এবং TypeScript ব্যবহার করে অ্যাপ্লিকেশনটি তৈরি করা হয়েছে, যেখানে Tailwind CSS দিয়ে রেসপনসিভ ও আধুনিক UI ডিজাইন করা হয়েছে। Player Selection, Budget Management, Toast Notification এবং Interactive Components-এর মাধ্যমে একটি বাস্তবসম্মত ক্রিকেট Player Auction-এর অভিজ্ঞতা দেওয়ার চেষ্টা করা হয়েছে।',
+      link: 'https://bpl-dream11-two.vercel.app/',
+    },
+    {
+      logo: '/images/download.svg',
+      alt: 'Coding Mind logo',
+      title: 'Coding Mind',
+      description:
+        'এটি একটি আধুনিক এবং ফ্রি মক এপিআই (Mock API) ম্যানেজমেন্ট প্ল্যাটফর্ম। ফ্রন্টএন্ড এবং ব্যাকএন্ড ডেভেলপারদের কাজের গতি বাড়াতে এটি তৈরি করা হয়েছে। এর মাধ্যমে কোনো ব্যাকএন্ড কোড ছাড়াই আনলিমিটেড প্রজেক্ট ও এন্ডপয়েন্ট তৈরি করা, ডায়নামিক রেসপন্স কনফিগার করা, ফেক ডেটা জেনারেট করা এবং এরর/ডিলে সিমুলেট করার মতো দারুণ সব ফিচার ব্যবহার করা যায়। পুরো ল্যান্ডিং পেজটি Tailwind CSS দিয়ে চমৎকারভাবে ডিজাইন করা হয়েছে।',
+      link: 'https://coding-mind-mehadee-hassan.vercel.app/',
+    },
+    {
+      logo: '/images/favicon-Bx60cIKr.png',
+      alt: 'Code Fight logo',
+      title: 'Code Fight',
+      description:
+        'এটি একটি আধুনিক ব্লগিং প্ল্যাটফর্ম যেখানে ব্যবহারকারীরা বিভিন্ন বিষয়ে ব্লগ পড়তে পারেন। এটি একটি ফুল-স্ট্যাক ওয়েব অ্যাপ্লিকেশন যা রেসপনসিভ ডিজাইনের মাধ্যমে তৈরি করা হয়েছে।',
+      link: 'https://blog-project-eight-pi.vercel.app/',
+    },
+    {
+      logo: 'https://nature-s-platter-three.vercel.app/img/Vector.png',
       alt: "Nature's Platter",
       title: "Nature's Platter",
-      description: "এটি একটি ফ্রেশ ও অর্গানিক ফুড ল্যান্ডিং ও অর্ডার প্লেটফর্ম, যেখানে ব্যবহারকারীরা সহজে বিভিন্ন ফুড আইটেম ব্রাউজ করতে পারেন। এতে ফুড ক্যাটাগরি, আকর্ষণীয় হিরো ব্যানার ও প্রমোশনাল সেকশন রয়েছে। সম্পূর্ণ প্রজেক্টটি HTML, CSS এবং JavaScript দিয়ে রেসপনসিভ ও ক্লিন ইউআই ডিজাইনে তৈরি করা হয়েছে।",
-      link: "https://nature-s-platter-three.vercel.app/",
+      description:
+        'এটি একটি ফ্রেশ ও অর্গানিক ফুড ল্যান্ডিং ও অর্ডার প্লেটফর্ম, যেখানে ব্যবহারকারীরা সহজে বিভিন্ন ফুড আইটেম ব্রাউজ করতে পারেন। এতে ফুড ক্যাটাগরি, আকর্ষণীয় হিরো ব্যানার ও প্রমোশনাল সেকশন রয়েছে। সম্পূর্ণ প্রজেক্টটি HTML, CSS এবং JavaScript দিয়ে রেসপনসিভ ও ক্লিন ইউআই ডিজাইনে তৈরি করা হয়েছে।',
+      link: 'https://nature-s-platter-three.vercel.app/',
     },
     {
-      logo: "https://bpl-dream11-two.vercel.app/assets/Group%201-DE68HT7x.png",
-      alt: "BPL Dream11",
-      title: "BPL Dream11",
-      description: "এটি একটি ইন্টারেক্টিভ ও ডায়নামিক ফ্যান্টাসি ক্রিকেট ওয়েব অ্যাপ্লিকেশন, যেখানে ইউজাররা তাদের পছন্দের বিপিএল খেলোয়াড়দের নিয়ে নিজস্ব একাদশ (Dream Team) গঠন করতে পারেন। অ্যাপ্লিকেশনে নির্দিষ্ট ভার্চুয়াল বাজেট সিস্টেম রয়েছে, যার মাধ্যমে প্লেয়ার সিলেক্ট ও রিমুভ করার সুযোগ রয়েছে। ফ্রন্টএন্ড তৈরিতে React, TypeScript এবং Tailwind CSS ব্যবহার করা হয়েছে, যা ওয়েবসাইটটিকে অত্যন্ত ফাস্ট ও রেসপনসিভ করেছে।",
-      link: "https://bpl-dream11-two.vercel.app/",
+      logo: 'https://bpl-dream11-two.vercel.app/assets/Group%201-DE68HT7x.png',
+      alt: 'BPL Dream11',
+      title: 'BPL Dream11',
+      description:
+        'এটি একটি ইন্টারেক্টিভ ও ডায়নামিক ফ্যান্টাসি ক্রিকেট ওয়েব অ্যাপ্লিকেশন, যেখানে ইউজাররা তাদের পছন্দের বিপিএল খেলোয়াড়দের নিয়ে নিজস্ব একাদশ (Dream Team) গঠন করতে পারেন। অ্যাপ্লিকেশনে নির্দিষ্ট ভার্চুয়াল বাজেট সিস্টেম রয়েছে, যার মাধ্যমে প্লেয়ার সিলেক্ট ও রিমুভ করার সুযোগ রয়েছে। ফ্রন্টএন্ড তৈরিতে React, TypeScript এবং Tailwind CSS ব্যবহার করা হয়েছে, যা ওয়েবসাইটটিকে অত্যন্ত ফাস্ট ও রেসপনসিভ করেছে।',
+      link: 'https://bpl-dream11-two.vercel.app/',
     },
     {
-      logo: "https://learn-with-mehedi.vercel.app/favicon.ico",
-      alt: "Learn with Mehedi logo",
-      title: "Learn with Mehedi",
-      description: "এটি একটি ইন্টারঅ্যাক্টিভ ই-লার্নিং বা এডুকেশনাল প্ল্যাটফর্ম, যেখানে শিক্ষার্থীরা বিভিন্ন কোর্স এবং টিউটোরিয়াল অ্যাক্সেস করতে পারে। প্ল্যাটফর্মটি ব্যবহারকারী-বান্ধব ইন্টারফেস এবং ক্লিন নেভিগেশনের ওপর ভিত্তি করে তৈরি করা হয়েছে, যাতে শেখার অভিজ্ঞতা সহজ ও আনন্দদায়ক হয়। এটি মূলত আধুনিক ওয়েব টেকনোলজি ব্যবহার করে একটি দক্ষ লার্নিং ইকোসিস্টেম হিসেবে ডিজাইন করা।",
-      link: "https://learn-with-mehedi.vercel.app/",
+      logo: 'https://learn-with-mehedi.vercel.app/favicon.ico',
+      alt: 'Learn with Mehedi logo',
+      title: 'Learn with Mehedi',
+      description:
+        'এটি একটি ইন্টারঅ্যাক্টিভ ই-লার্নিং বা এডুকেশনাল প্ল্যাটফর্ম, যেখানে শিক্ষার্থীরা বিভিন্ন কোর্স এবং টিউটোরিয়াল অ্যাক্সেস করতে পারে। প্ল্যাটফর্মটি ব্যবহারকারী-বান্ধব ইন্টারফেস এবং ক্লিন নেভিগেশনের ওপর ভিত্তি করে তৈরি করা হয়েছে, যাতে শেখার অভিজ্ঞতা সহজ ও আনন্দদায়ক হয়। এটি মূলত আধুনিক ওয়েব টেকনোলজি ব্যবহার করে একটি দক্ষ লার্নিং ইকোসিস্টেম হিসেবে ডিজাইন করা।',
+      link: 'https://learn-with-mehedi.vercel.app/',
     },
     {
-      logo: "/images/online-shop Background Removed copy.png",
-      alt: "ReactMart logo",
-      title: "ReactMart",
-      description: "React.js দিয়ে তৈরি একটি আধুনিক এবং রেসপনসিভ ই-কমার্স ওয়েব অ্যাপ্লিকেশন। এই প্রজেক্টে প্রোডাক্ট লিস্টিং, ডায়নামিক প্রোডাক্ট ফিল্টারিং, কার্ট (Cart) ম্যানেজমেন্ট এবং একটি স্মুথ ইউজার ইন্টারফেস অন্তর্ভুক্ত রয়েছে। সিঙ্গেল পেজ অ্যাপ্লিকেশন (SPA) হিসেবে ব্যবহারকারীদের চমৎকার ও দ্রুত শপিং অভিজ্ঞতা দেওয়ার জন্য এটি ডিজাইন করা হয়েছে।",
-      link: "https://ecommace-react-js.vercel.app/",
+      logo: '/images/online-shop Background Removed copy.png',
+      alt: 'ReactMart logo',
+      title: 'ReactMart',
+      description:
+        'React.js দিয়ে তৈরি একটি আধুনিক এবং রেসপনসিভ ই-কমার্স ওয়েব অ্যাপ্লিকেশন। এই প্রজেক্টে প্রোডাক্ট লিস্টিং, ডায়নামিক প্রোডাক্ট ফিল্টারিং, কার্ট (Cart) ম্যানেজমেন্ট এবং একটি স্মুথ ইউজার ইন্টারফেস অন্তর্ভুক্ত রয়েছে। সিঙ্গেল পেজ অ্যাপ্লিকেশন (SPA) হিসেবে ব্যবহারকারীদের চমৎকার ও দ্রুত শপিং অভিজ্ঞতা দেওয়ার জন্য এটি ডিজাইন করা হয়েছে।',
+      link: 'https://ecommace-react-js.vercel.app/',
     },
     {
-      logo: "https://bootstrap-ecommerce-silk.vercel.app/images/grocery%20logo%20Background%20Removed.png",
-      alt: "metualogo",
-      title: "Metua Grocery",
-      description: "বর্তমান সময়ে অনলাইন শপিং আমাদের দৈনন্দিন জীবনের একটি অপরিহার্য অংশে পরিণত হয়েছে। সেই প্রয়োজনের প্রতি সাড়া দিয়ে Metua Grocery একটি আধুনিক এবং ব্যবহারবান্ধব প্ল্যাটফর্ম হিসেবে আত্মপ্রকাশ করেছে। এটি শুধু একটি সাধারণ অনলাইন মুদি দোকান নয়, বরং একটি এমন জায়গা যেখানে গ্রাহকরা সহজে এবং দ্রুত তাদের প্রয়োজনীয় পণ্যসমূহ অর্ডার করতে পারেন।",
-      link: "https://bootstrap-ecommerce-silk.vercel.app/",
+      logo: 'https://bootstrap-ecommerce-silk.vercel.app/images/grocery%20logo%20Background%20Removed.png',
+      alt: 'metualogo',
+      title: 'Metua Grocery',
+      description:
+        'বর্তমান সময়ে অনলাইন শপিং আমাদের দৈনন্দিন জীবনের একটি অপরিহার্য অংশে পরিণত হয়েছে। সেই প্রয়োজনের প্রতি সাড়া দিয়ে Metua Grocery একটি আধুনিক এবং ব্যবহারবান্ধব প্ল্যাটফর্ম হিসেবে আত্মপ্রকাশ করেছে। এটি শুধু একটি সাধারণ অনলাইন মুদি দোকান নয়, বরং একটি এমন জায়গা যেখানে গ্রাহকরা সহজে এবং দ্রুত তাদের প্রয়োজনীয় পণ্যসমূহ অর্ডার করতে পারেন।',
+      link: 'https://bootstrap-ecommerce-silk.vercel.app/',
     },
     // নতুন প্রজেক্ট যোগ করতে হলে এখানে { logo, alt, title, description, link } অবজেক্ট যোগ করুন
   ];
 
   const PAGE_SIZE = 6;
-  const grid = document.getElementById("projectsGrid");
-  const paginationList = document.getElementById("projectsPagination");
+  const grid = document.getElementById('projectsGrid');
+  const paginationList = document.getElementById('projectsPagination');
 
   if (!grid || !paginationList) return;
 
@@ -337,9 +368,29 @@ function initExpandableDescriptions(scope) {
   let currentPage = 1;
 
   function createCard(project) {
-    const col = document.createElement("div");
-    col.className = "col-12 col-md-6 col-lg-4 d-flex justify-content-center";
-    col.innerHTML = '<div class="card custom-card text-start">' + '<div class="logo-area text-center">' + '<img src="' + project.logo + '" alt="' + project.alt + '" class="brand-logo" />' + "</div>" + '<h5 class="fw-bold mb-3">' + project.title + "</h5>" + '<p class="text-muted mb-4">' + project.description + "</p>" + '<div class="button-area">' + '<a href="' + project.link + '" target="_blank" rel="noopener noreferrer" class="btn-visit">ভিজিট করুন</a>' + "</div>" + "</div>";
+    const col = document.createElement('div');
+    col.className = 'col-12 col-md-6 col-lg-4 d-flex justify-content-center';
+    col.innerHTML =
+      '<div class="card custom-card text-start">' +
+      '<div class="logo-area text-center">' +
+      '<img src="' +
+      project.logo +
+      '" alt="' +
+      project.alt +
+      '" class="brand-logo" />' +
+      '</div>' +
+      '<h5 class="fw-bold mb-3">' +
+      project.title +
+      '</h5>' +
+      '<p class="text-muted mb-4">' +
+      project.description +
+      '</p>' +
+      '<div class="button-area">' +
+      '<a href="' +
+      project.link +
+      '" target="_blank" rel="noopener noreferrer" class="btn-visit">ভিজিট করুন</a>' +
+      '</div>' +
+      '</div>';
     return col;
   }
 
@@ -357,7 +408,7 @@ function initExpandableDescriptions(scope) {
     let prev = 0;
     pages.forEach((page) => {
       if (prev && page - prev === 2) withDots.push(prev + 1);
-      else if (prev && page - prev > 2) withDots.push("...");
+      else if (prev && page - prev > 2) withDots.push('...');
       withDots.push(page);
       prev = page;
     });
@@ -365,18 +416,18 @@ function initExpandableDescriptions(scope) {
   }
 
   function addPageItem(label, page, { active = false, disabled = false } = {}) {
-    const li = document.createElement("li");
-    li.className = "proj-page-item" + (active ? " active" : "") + (disabled ? " disabled" : "");
+    const li = document.createElement('li');
+    li.className = 'proj-page-item' + (active ? ' active' : '') + (disabled ? ' disabled' : '');
 
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "proj-page-btn";
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'proj-page-btn';
     btn.textContent = label;
     btn.disabled = disabled;
-    if (active) btn.setAttribute("aria-current", "page");
+    if (active) btn.setAttribute('aria-current', 'page');
 
     if (!disabled && !active) {
-      btn.addEventListener("click", () => renderPage(page, true));
+      btn.addEventListener('click', () => renderPage(page, true));
     }
 
     li.appendChild(btn);
@@ -384,25 +435,25 @@ function initExpandableDescriptions(scope) {
   }
 
   function renderPagination() {
-    paginationList.innerHTML = "";
+    paginationList.innerHTML = '';
     if (totalPages <= 1) return;
 
-    addPageItem("«", currentPage - 1, { disabled: currentPage === 1 });
+    addPageItem('«', currentPage - 1, { disabled: currentPage === 1 });
 
     getVisiblePages(totalPages, currentPage).forEach((page) => {
-      if (page === "...") {
-        addPageItem("...", null, { disabled: true });
+      if (page === '...') {
+        addPageItem('...', null, { disabled: true });
       } else {
         addPageItem(String(page), page, { active: page === currentPage });
       }
     });
 
-    addPageItem("»", currentPage + 1, { disabled: currentPage === totalPages });
+    addPageItem('»', currentPage + 1, { disabled: currentPage === totalPages });
   }
 
   function renderPage(page, isUserTriggered) {
     currentPage = Math.min(Math.max(page, 1), totalPages);
-    grid.innerHTML = "";
+    grid.innerHTML = '';
 
     const start = (currentPage - 1) * PAGE_SIZE;
     PROJECTS.slice(start, start + PAGE_SIZE).forEach((project) => {
@@ -415,8 +466,8 @@ function initExpandableDescriptions(scope) {
     // ইউজার নিজে Prev/Next/নাম্বারে ক্লিক করলেই শুধু সেকশনের শুরুতে স্ক্রল হবে,
     // পেজ প্রথমবার লোড হওয়ার সময় (initial render) স্ক্রল জাম্প হবে না
     if (isUserTriggered) {
-      const section = grid.closest(".main-container");
-      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      const section = grid.closest('.main-container');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
