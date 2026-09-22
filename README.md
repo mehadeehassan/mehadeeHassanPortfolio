@@ -2,7 +2,7 @@
 
 A personal portfolio website showcasing my projects, technical skills, and professional background as a Full Stack Software Engineer (MERN Stack).
 
-**Live Site:** [Add your deployed link here]
+**Live Site:** [https://mehadee-hassan-portfolio.netlify.app]
 
 ---
 
