@@ -21,7 +21,6 @@ function initExpandableDescriptions(scope) {
   });
 }
 
-
 /* ২. Dark Mode: theme change এবং localStorage-এ save করার জন্য */
 (function () {
   var STORAGE_KEY = 'theme';
@@ -62,8 +61,7 @@ function initExpandableDescriptions(scope) {
 
     /* Button click করলে Light/Dark theme পরিবর্তন করার জন্য */
     toggleBtn.addEventListener('click', function () {
-      var isDark =
-        document.documentElement.getAttribute('data-theme') === 'dark';
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
       var newTheme = isDark ? 'light' : 'dark';
 
@@ -80,18 +78,13 @@ function initExpandableDescriptions(scope) {
   }
 })();
 
-
 /* ৩. Cursor follow ring এবং smoke particle animation */
 (function () {
   /* শুধু desktop/fine pointer device-এ effect চালানোর জন্য */
-  const canUseCursorTrail = window.matchMedia(
-    '(hover: hover) and (pointer: fine)'
-  ).matches;
+  const canUseCursorTrail = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* User reduced motion prefer করলে animation বন্ধ রাখার জন্য */
-  const reducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!canUseCursorTrail || reducedMotion) return;
 
@@ -119,20 +112,17 @@ function initExpandableDescriptions(scope) {
   let animationFrame = 0;
   let ringFrame = 0;
 
-
   /* Cursor ring-কে smoothly mouse position-এর সাথে move করার জন্য */
   function followCursor() {
     ringX += (targetX - ringX) * 0.18;
     ringY += (targetY - ringY) * 0.18;
 
-    cursorRing.style.transform =
-      `translate3d(${ringX}px, ${ringY}px, 0)`;
+    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
 
     ringFrame = requestAnimationFrame(followCursor);
   }
 
   followCursor();
-
 
   /* Cursor movement থেকে নতুন smoke particle তৈরি করার জন্য */
   function addParticle(x, y, velocity) {
@@ -155,20 +145,16 @@ function initExpandableDescriptions(scope) {
       y: y - size / 2,
       started: performance.now(),
       life,
-      driftX:
-        (Math.random() - 0.5) *
-        (0.35 + velocity * 0.05),
+      driftX: (Math.random() - 0.5) * (0.35 + velocity * 0.05),
       driftY: -0.1 - Math.random() * 0.35,
       rotation: (Math.random() - 0.5) * 20,
     });
   }
 
-
   /* Smoke particle-এর position, size এবং opacity animate করার জন্য */
   function animate(now) {
     particles.forEach((particle, index) => {
-      const progress =
-        (now - particle.started) / particle.life;
+      const progress = (now - particle.started) / particle.life;
 
       if (progress >= 1) {
         particle.element.remove();
@@ -190,12 +176,8 @@ function initExpandableDescriptions(scope) {
         `rotate(${particle.rotation * progress}deg)`;
     });
 
-    animationFrame =
-      particles.length
-        ? requestAnimationFrame(animate)
-        : 0;
+    animationFrame = particles.length ? requestAnimationFrame(animate) : 0;
   }
-
 
   /* Mouse movement detect করে cursor trail তৈরি করার জন্য */
   window.addEventListener(
@@ -211,12 +193,7 @@ function initExpandableDescriptions(scope) {
         cursorRing.classList.add('is-visible');
       }
 
-      const distance = hasPointer
-        ? Math.hypot(
-            event.clientX - lastX,
-            event.clientY - lastY
-          )
-        : 0;
+      const distance = hasPointer ? Math.hypot(event.clientX - lastX, event.clientY - lastY) : 0;
 
       if (!hasPointer) {
         hasPointer = true;
@@ -231,21 +208,16 @@ function initExpandableDescriptions(scope) {
       lastX = event.clientX;
       lastY = event.clientY;
 
-      addParticle(
-        event.clientX,
-        event.clientY,
-        Math.min(distance, 40)
-      );
+      addParticle(event.clientX, event.clientY, Math.min(distance, 40));
 
       /* Particle থাকলে animation চালু করার জন্য */
       if (!animationFrame) {
         animationFrame = requestAnimationFrame(animate);
       }
     },
-    { passive: true }
+    { passive: true },
   );
 })();
-
 
 // ৪. Projects Section — Dynamic Cards + Pagination
 
@@ -260,9 +232,17 @@ function initExpandableDescriptions(scope) {
         'এটি একটি আধুনিক ফুল-স্ট্যাক ই-কমার্স প্ল্যাটফর্ম, যেখানে গ্রাহকরা সহজে প্রোডাক্ট ব্রাউজ, সার্চ ও অর্ডার করতে পারেন, আর অ্যাডমিনরা একটি সুরক্ষিত ড্যাশবোর্ড থেকে পুরো ইনভেন্টরি নিয়ন্ত্রণ করতে পারেন। ফ্রন্টএন্ড তৈরি হয়েছে React ও Redux Toolkit দিয়ে, যেখানে Tailwind CSS ব্যবহার করে একটি ক্লিন ও রেসপনসিভ ইউজার ইন্টারফেস ডিজাইন করা হয়েছে। ব্যাকএন্ড Node.js, Express ও Sequelize ORM দিয়ে তৈরি, MySQL ডাটাবেসের সাথে সংযুক্ত এবং JWT-ভিত্তিক অথেন্টিকেশন সিস্টেম ব্যবহার করে অ্যাডমিন ও ইউজার অ্যাক্সেস নিয়ন্ত্রণ করা হয়। প্রোডাক্ট ইমেজ আপলোড ও ম্যানেজমেন্টের জন্য Cloudinary ব্যবহার করা হয়েছে, এবং প্রজেক্টটি Render ও Vercel-এ ডিপ্লয় করে ক্লাউড-হোস্টেড MySQL ডাটাবেসের (Aiven) সাথে যুক্ত করা হয়েছে।',
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
+    {
+      logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
+      alt: 'FitLog logo',
+      title: 'FitLog-Workout Library',
+      description:
+        "এটি একটি আধুনিক ও responsive Workout Library platform, যেখানে ব্যবহারকারীরা বিভিন্ন workout browse, search এবং duration, calories ও rating অনুযায়ী sort করতে পারেন। প্রতিটি workout-এর details page-এ equipment, difficulty, sets, reps ও ধাপে ধাপে instructions দেখার সুবিধা রয়েছে। ব্যবহারকারীরা পছন্দের workout Today's Plan-এ যুক্ত করতে পারেন (সর্বোচ্চ ৫টি) অথবা Saved list-এ রেখে দিতে পারেন। My Plan page-এ Today's Plan ও Saved আলাদা tab-এ দেখা যায়, যেখানে Exercises, Minutes ও Calories-এর live stats আপডেট হয় এবং workout Mark as Done বা Remove করা যায়। প্রজেক্টটি Next.js (App Router) ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে একটি dark, minimal ও responsive UI ডিজাইন করা হয়েছে। React Context API ও useReducer ব্যবহার করে plan ও saved state ম্যানেজ করা হয়েছে এবং localStorage-এর মাধ্যমে data persist করা হয়েছে, ফলে page reload করলেও plan হারায় না। React Hot Toast-এর মাধ্যমে প্রতিটি action-এ instant notification দেওয়া হয়েছে, সাথে custom 404 ও error page এবং loading state-এর মাধ্যমে একটি smooth user experience নিশ্চিত করা হয়েছে।",
+      link: 'https://fit-log-workout-library-chi.vercel.app',
+    },
 
     {
-      logo: '/images/favicon.svg',
+      logo: 'https://dev-stack-eta.vercel.app/assets/banner-stack-xf3d4ag0.png',
       alt: 'Dev Stack logo',
       title: 'Dev Stack',
       description:
@@ -372,32 +352,24 @@ function initExpandableDescriptions(scope) {
     // নতুন project যোগ করতে হলে এখানে object যোগ করুন
   ];
 
-
   /* প্রতি page-এ কয়টি project দেখাবে */
   const PAGE_SIZE = 6;
 
   const grid = document.getElementById('projectsGrid');
-  const paginationList =
-    document.getElementById('projectsPagination');
+  const paginationList = document.getElementById('projectsPagination');
 
   if (!grid || !paginationList) return;
 
-
   /* মোট কতগুলো pagination page প্রয়োজন তা হিসাব করার জন্য */
-  const totalPages = Math.max(
-    1,
-    Math.ceil(PROJECTS.length / PAGE_SIZE)
-  );
+  const totalPages = Math.max(1, Math.ceil(PROJECTS.length / PAGE_SIZE));
 
   let currentPage = 1;
-
 
   /* Project data থেকে একটি dynamic card তৈরি করার জন্য */
   function createCard(project) {
     const col = document.createElement('div');
 
-    col.className =
-      'col-12 col-md-6 col-lg-4 d-flex justify-content-center';
+    col.className = 'col-12 col-md-6 col-lg-4 d-flex justify-content-center';
 
     col.innerHTML =
       '<div class="card custom-card text-start">' +
@@ -424,18 +396,13 @@ function initExpandableDescriptions(scope) {
     return col;
   }
 
-
   /* Current page অনুযায়ী visible pagination numbers তৈরি করার জন্য */
   function getVisiblePages(total, current) {
     const delta = 1;
     const pages = [];
 
     for (let i = 1; i <= total; i++) {
-      if (
-        i === 1 ||
-        i === total ||
-        (i >= current - delta && i <= current + delta)
-      ) {
+      if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
         pages.push(i);
       }
     }
@@ -457,19 +424,11 @@ function initExpandableDescriptions(scope) {
     return withDots;
   }
 
-
   /* Pagination-এর একটি page button তৈরি করার জন্য */
-  function addPageItem(
-    label,
-    page,
-    { active = false, disabled = false } = {}
-  ) {
+  function addPageItem(label, page, { active = false, disabled = false } = {}) {
     const li = document.createElement('li');
 
-    li.className =
-      'proj-page-item' +
-      (active ? ' active' : '') +
-      (disabled ? ' disabled' : '');
+    li.className = 'proj-page-item' + (active ? ' active' : '') + (disabled ? ' disabled' : '');
 
     const btn = document.createElement('button');
 
@@ -484,15 +443,12 @@ function initExpandableDescriptions(scope) {
 
     /* Active বা disabled না হলে page change করার জন্য */
     if (!disabled && !active) {
-      btn.addEventListener('click', () =>
-        renderPage(page, true)
-      );
+      btn.addEventListener('click', () => renderPage(page, true));
     }
 
     li.appendChild(btn);
     paginationList.appendChild(li);
   }
-
 
   /* Previous, Next এবং page number দিয়ে pagination render করার জন্য */
   function renderPagination() {
@@ -524,28 +480,21 @@ function initExpandableDescriptions(scope) {
     });
   }
 
-
   /* Selected page-এর project cards এবং pagination render করার জন্য */
   function renderPage(page, isUserTriggered) {
     /* Valid page number-এর মধ্যে current page রাখার জন্য */
-    currentPage = Math.min(
-      Math.max(page, 1),
-      totalPages
-    );
+    currentPage = Math.min(Math.max(page, 1), totalPages);
 
     /* আগের cards remove করার জন্য */
     grid.innerHTML = '';
 
     /* Current page-এর প্রথম project-এর index বের করার জন্য */
-    const start =
-      (currentPage - 1) * PAGE_SIZE;
+    const start = (currentPage - 1) * PAGE_SIZE;
 
     /* Current page-এর projects dynamically render করার জন্য */
-    PROJECTS
-      .slice(start, start + PAGE_SIZE)
-      .forEach((project) => {
-        grid.appendChild(createCard(project));
-      });
+    PROJECTS.slice(start, start + PAGE_SIZE).forEach((project) => {
+      grid.appendChild(createCard(project));
+    });
 
     /* নতুন cards-এর See More functionality initialize করার জন্য */
     initExpandableDescriptions(grid);
@@ -553,11 +502,9 @@ function initExpandableDescriptions(scope) {
     /* Pagination update করার জন্য */
     renderPagination();
 
-
     /* User pagination click করলে projects section-এ smooth scroll করার জন্য */
     if (isUserTriggered) {
-      const section =
-        grid.closest('.main-container');
+      const section = grid.closest('.main-container');
 
       if (section) {
         section.scrollIntoView({
@@ -567,7 +514,6 @@ function initExpandableDescriptions(scope) {
       }
     }
   }
-
 
   /* Page load হলে প্রথম ৬টি project দেখানোর জন্য */
   renderPage(1, false);
