@@ -265,7 +265,7 @@ function initExpandableDescriptions(scope) {
       link: 'https://bazardor-alpha.vercel.app',
     },
     {
-      logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
+      logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Fbanner.png&w=1920&q=75',
       alt: 'FitLog logo',
       title: 'FitLog-Workout Library',
       description:
