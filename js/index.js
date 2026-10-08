@@ -257,6 +257,14 @@ function initExpandableDescriptions(scope) {
       link: 'https://hero-io-gamma.vercel.app',
     },
     {
+      logo: 'https://bazardor-alpha.vercel.app/_next/image?url=%2Fbazar-hero.png&w=384&q=75',
+      alt: 'BazarDor logo',
+      title: 'বাজার দর - BazarDor',
+      description:
+        'এটি একটি আধুনিক ও responsive Grocery Price Tracker platform, যেখানে ব্যবহারকারীরা চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মসলার আজকের বাজার দর এক নজরে দেখতে পারেন। Home page-এ infinite scrolling price ticker, আজ যে ৬টি পণ্যের দাম সবচেয়ে বেশি বেড়েছে ও কমেছে এবং সব পণ্যের তালিকা দেখানো হয়। Category page-এ দাম অনুযায়ী ascending ও descending order-এ sort করার সুবিধা রয়েছে, যেখানে বাংলা সংখ্যার বদলে numeric value ধরে sort করা হয়। Product details page-এ সর্বনিম্ন, সর্বাধিক ও গড় দাম এবং বিভিন্ন বাজারভিত্তিক দামের table দেখা যায়, যা শুধু login করা ব্যবহারকারীদের জন্য protected। ব্যবহারকারীরা Email/Password, Google ও GitHub দিয়ে sign in করতে পারেন এবং Profile page থেকে নিজের নাম update ও sign out করতে পারেন। প্রজেক্টটি Next.js (App Router) ও React-এর মাধ্যমে JavaScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS ও daisyUI দিয়ে Figma ডিজাইন অনুযায়ী responsive UI তৈরি করা হয়েছে। Authentication-এর জন্য BetterAuth ও MongoDB ব্যবহার করা হয়েছে এবং React Hot Toast-এর মাধ্যমে login, logout ও protected route redirect-এর মতো actions-এ instant notification দেওয়া হয়েছে, সাথে skeleton loading ও custom 404 page-এর মাধ্যমে একটি smooth user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://bazardor-alpha.vercel.app',
+    },
+    {
       logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
       alt: 'FitLog logo',
       title: 'FitLog-Workout Library',
