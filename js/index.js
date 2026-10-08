@@ -233,6 +233,14 @@ function initExpandableDescriptions(scope) {
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
+      logo: 'https://book-vibe-beryl-six.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffavicon.0_5n8vrnywfp4.png&w=48&q=75',
+      alt: 'Book Vibe logo',
+      title: 'Book Vibe',
+      description:
+        'এটি একটি আধুনিক ও ইন্টারঅ্যাক্টিভ বই ম্যানেজমেন্ট এবং রিডিং ট্র্যাকিং প্ল্যাটফর্ম, যেখানে ব্যবহারকারীরা বিভিন্ন বই ব্রাউজ করতে, বিস্তারিত তথ্য দেখতে এবং নিজেদের reading journey ম্যানেজ করতে পারেন। প্রতিটি বইয়ের author, rating, review, category, tags, total pages, publisher এবং publication year-এর মতো বিস্তারিত তথ্য দেখার সুবিধা রয়েছে। ব্যবহারকারীরা বইকে Read List অথবা Wishlist-এ যুক্ত করতে পারেন এবং নিজের লাইব্রেরিতে থাকা বইগুলো rating, pages ও publishing year অনুযায়ী sort করতে পারেন। প্রজেক্টটি Next.js ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে responsive ও modern UI তৈরি করা হয়েছে। React Context API ব্যবহার করে reading list ও wishlist-এর client-side state management করা হয়েছে এবং React Toastify ও Recharts-এর মাধ্যমে interactive feedback ও data visualization-এর সুবিধা যুক্ত করা হয়েছে।',
+      link: 'https://book-vibe-beryl-six.vercel.app',
+    },
+    {
       logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
       alt: 'FitLog logo',
       title: 'FitLog-Workout Library',
@@ -240,16 +248,6 @@ function initExpandableDescriptions(scope) {
         "এটি একটি আধুনিক ও responsive Workout Library platform, যেখানে ব্যবহারকারীরা বিভিন্ন workout browse, search এবং duration, calories ও rating অনুযায়ী sort করতে পারেন। প্রতিটি workout-এর details page-এ equipment, difficulty, sets, reps ও ধাপে ধাপে instructions দেখার সুবিধা রয়েছে। ব্যবহারকারীরা পছন্দের workout Today's Plan-এ যুক্ত করতে পারেন (সর্বোচ্চ ৫টি) অথবা Saved list-এ রেখে দিতে পারেন। My Plan page-এ Today's Plan ও Saved আলাদা tab-এ দেখা যায়, যেখানে Exercises, Minutes ও Calories-এর live stats আপডেট হয় এবং workout Mark as Done বা Remove করা যায়। প্রজেক্টটি Next.js (App Router) ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে একটি dark, minimal ও responsive UI ডিজাইন করা হয়েছে। React Context API ও useReducer ব্যবহার করে plan ও saved state ম্যানেজ করা হয়েছে এবং localStorage-এর মাধ্যমে data persist করা হয়েছে, ফলে page reload করলেও plan হারায় না। React Hot Toast-এর মাধ্যমে প্রতিটি action-এ instant notification দেওয়া হয়েছে, সাথে custom 404 ও error page এবং loading state-এর মাধ্যমে একটি smooth user experience নিশ্চিত করা হয়েছে।",
       link: 'https://fit-log-workout-library-chi.vercel.app',
     },
-
-    {
-      logo: 'https://dev-stack-eta.vercel.app/assets/banner-stack-xf3d4ag0.png',
-      alt: 'Dev Stack logo',
-      title: 'Dev Stack',
-      description:
-        'এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ ডেভেলপার টেকনোলজি এক্সপ্লোরিং প্ল্যাটফর্ম, যেখানে ডেভেলপাররা Frontend, Backend, Database, Programming Language, Styling এবং DevOps-এর বিভিন্ন টেকনোলজি সম্পর্কে জানতে এবং নিজেদের পছন্দের টেকনোলজি দিয়ে একটি Personal Development Stack তৈরি করতে পারেন। প্রতিটি টেকনোলজির Rating ও Difficulty Level দেখার পাশাপাশি পছন্দের টেকনোলজি সহজেই Stack-এ যুক্ত এবং ম্যানেজ করা যায়। প্রজেক্টটি React.js দিয়ে তৈরি করা হয়েছে এবং Local JSON Dataset ব্যবহার করে ডায়নামিকভাবে টেকনোলজি ডেটা প্রদর্শন করা হয়েছে। Responsive Design, Reusable Components এবং Interactive UI-এর মাধ্যমে ডেভেলপারদের জন্য একটি সহজ, দ্রুত ও সুন্দর user experience নিশ্চিত করা হয়েছে।',
-      link: 'https://dev-stack-eta.vercel.app/',
-    },
-
     {
       logo: 'https://hero-io-gamma.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Flogo.1wrs3ds2-8_su.png&w=48&q=75',
       alt: 'HERO.IO logo',
@@ -260,14 +258,21 @@ function initExpandableDescriptions(scope) {
     },
 
     {
-      logo: 'https://book-vibe-beryl-six.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffavicon.0_5n8vrnywfp4.png&w=48&q=75',
-      alt: 'Book Vibe logo',
-      title: 'Book Vibe',
+      logo: 'https://bangla-news24-roan.vercel.app/_next/image?url=%2FGlobeLogo.png&w=256&q=75',
+      alt: 'Bangla News 24 logo',
+      title: 'Bangla News24',
       description:
-        'এটি একটি আধুনিক ও ইন্টারঅ্যাক্টিভ বই ম্যানেজমেন্ট এবং রিডিং ট্র্যাকিং প্ল্যাটফর্ম, যেখানে ব্যবহারকারীরা বিভিন্ন বই ব্রাউজ করতে, বিস্তারিত তথ্য দেখতে এবং নিজেদের reading journey ম্যানেজ করতে পারেন। প্রতিটি বইয়ের author, rating, review, category, tags, total pages, publisher এবং publication year-এর মতো বিস্তারিত তথ্য দেখার সুবিধা রয়েছে। ব্যবহারকারীরা বইকে Read List অথবা Wishlist-এ যুক্ত করতে পারেন এবং নিজের লাইব্রেরিতে থাকা বইগুলো rating, pages ও publishing year অনুযায়ী sort করতে পারেন। প্রজেক্টটি Next.js ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে responsive ও modern UI তৈরি করা হয়েছে। React Context API ব্যবহার করে reading list ও wishlist-এর client-side state management করা হয়েছে এবং React Toastify ও Recharts-এর মাধ্যমে interactive feedback ও data visualization-এর সুবিধা যুক্ত করা হয়েছে।',
-      link: 'https://book-vibe-beryl-six.vercel.app',
+        'এটি একটি আধুনিক ও responsive full-stack News Platform, যেখানে ব্যবহারকারীরা বিভিন্ন category অনুযায়ী latest news browse এবং বিস্তারিত news পড়তে পারেন। Login ছাড়াই news browsing করা যায়, আর authenticated users-এর জন্য protected news details ও profile management-এর সুবিধা রয়েছে। Email, Google ও GitHub authentication, email verification, password reset এবং secure session management-এর জন্য Better Auth ব্যবহার করা হয়েছে। প্রজেক্টটি Next.js, TypeScript, Tailwind CSS ও MongoDB দিয়ে তৈরি করা হয়েছে এবং Resend-এর মাধ্যমে verification ও password reset email পাঠানোর ব্যবস্থা করা হয়েছে। Responsive UI, loading state, custom 404 page এবং protected routes-এর মাধ্যমে একটি smooth ও secure user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://bangla-news24-roan.vercel.app',
     },
-
+    {
+      logo: 'https://dev-stack-eta.vercel.app/assets/banner-stack-xf3d4ag0.png',
+      alt: 'Dev Stack logo',
+      title: 'Dev Stack',
+      description:
+        'এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ ডেভেলপার টেকনোলজি এক্সপ্লোরিং প্ল্যাটফর্ম, যেখানে ডেভেলপাররা Frontend, Backend, Database, Programming Language, Styling এবং DevOps-এর বিভিন্ন টেকনোলজি সম্পর্কে জানতে এবং নিজেদের পছন্দের টেকনোলজি দিয়ে একটি Personal Development Stack তৈরি করতে পারেন। প্রতিটি টেকনোলজির Rating ও Difficulty Level দেখার পাশাপাশি পছন্দের টেকনোলজি সহজেই Stack-এ যুক্ত এবং ম্যানেজ করা যায়। প্রজেক্টটি React.js দিয়ে তৈরি করা হয়েছে এবং Local JSON Dataset ব্যবহার করে ডায়নামিকভাবে টেকনোলজি ডেটা প্রদর্শন করা হয়েছে। Responsive Design, Reusable Components এবং Interactive UI-এর মাধ্যমে ডেভেলপারদের জন্য একটি সহজ, দ্রুত ও সুন্দর user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://dev-stack-eta.vercel.app/',
+    },
     {
       logo: '/images/movie.png',
       alt: 'MarqueeReel logo',
