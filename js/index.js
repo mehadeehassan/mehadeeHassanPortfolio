@@ -241,12 +241,12 @@ function initExpandableDescriptions(scope) {
       link: 'https://book-vibe-beryl-six.vercel.app',
     },
     {
-      logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
-      alt: 'FitLog logo',
-      title: 'FitLog-Workout Library',
+      logo: 'https://bangla-news24-roan.vercel.app/_next/image?url=%2FGlobeLogo.png&w=256&q=75',
+      alt: 'Bangla News 24 logo',
+      title: 'Bangla News24',
       description:
-        "এটি একটি আধুনিক ও responsive Workout Library platform, যেখানে ব্যবহারকারীরা বিভিন্ন workout browse, search এবং duration, calories ও rating অনুযায়ী sort করতে পারেন। প্রতিটি workout-এর details page-এ equipment, difficulty, sets, reps ও ধাপে ধাপে instructions দেখার সুবিধা রয়েছে। ব্যবহারকারীরা পছন্দের workout Today's Plan-এ যুক্ত করতে পারেন (সর্বোচ্চ ৫টি) অথবা Saved list-এ রেখে দিতে পারেন। My Plan page-এ Today's Plan ও Saved আলাদা tab-এ দেখা যায়, যেখানে Exercises, Minutes ও Calories-এর live stats আপডেট হয় এবং workout Mark as Done বা Remove করা যায়। প্রজেক্টটি Next.js (App Router) ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে একটি dark, minimal ও responsive UI ডিজাইন করা হয়েছে। React Context API ও useReducer ব্যবহার করে plan ও saved state ম্যানেজ করা হয়েছে এবং localStorage-এর মাধ্যমে data persist করা হয়েছে, ফলে page reload করলেও plan হারায় না। React Hot Toast-এর মাধ্যমে প্রতিটি action-এ instant notification দেওয়া হয়েছে, সাথে custom 404 ও error page এবং loading state-এর মাধ্যমে একটি smooth user experience নিশ্চিত করা হয়েছে।",
-      link: 'https://fit-log-workout-library-chi.vercel.app',
+        'এটি একটি আধুনিক ও responsive full-stack News Platform, যেখানে ব্যবহারকারীরা বিভিন্ন category অনুযায়ী latest news browse এবং বিস্তারিত news পড়তে পারেন। Login ছাড়াই news browsing করা যায়, আর authenticated users-এর জন্য protected news details ও profile management-এর সুবিধা রয়েছে। Email, Google ও GitHub authentication, email verification, password reset এবং secure session management-এর জন্য Better Auth ব্যবহার করা হয়েছে। প্রজেক্টটি Next.js, TypeScript, Tailwind CSS ও MongoDB দিয়ে তৈরি করা হয়েছে এবং Resend-এর মাধ্যমে verification ও password reset email পাঠানোর ব্যবস্থা করা হয়েছে। Responsive UI, loading state, custom 404 page এবং protected routes-এর মাধ্যমে একটি smooth ও secure user experience নিশ্চিত করা হয়েছে।',
+      link: 'https://bangla-news24-roan.vercel.app',
     },
     {
       logo: 'https://hero-io-gamma.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Flogo.1wrs3ds2-8_su.png&w=48&q=75',
@@ -256,14 +256,13 @@ function initExpandableDescriptions(scope) {
         'এটি একটি আধুনিক ও responsive App Explorer platform, যেখানে ব্যবহারকারীরা বিভিন্ন application browse, search ও category অনুযায়ী filter করতে পারেন এবং প্রতিটি app-এর বিস্তারিত তথ্য দেখতে পারেন। App details page-এ application logo, developer information, description, rating, reviews, downloads ও size-এর মতো গুরুত্বপূর্ণ তথ্য প্রদর্শন করা হয়। ব্যবহারকারীরা পছন্দের application install করে নিজেদের personal app collection তৈরি করতে পারেন এবং Installed Apps section থেকে installed applications manage বা uninstall করতে পারেন। Installed apps size অনুযায়ী ascending ও descending order-এ sort করার সুবিধাও রয়েছে। প্রজেক্টটি Next.js ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে responsive ও modern UI তৈরি করা হয়েছে। React Context API ও React Hooks ব্যবহার করে application installation state management করা হয়েছে এবং React Toastify ব্যবহার করে installation ও uninstall-এর মতো user actions-এর জন্য instant notifications দেওয়া হয়েছে।',
       link: 'https://hero-io-gamma.vercel.app',
     },
-
     {
-      logo: 'https://bangla-news24-roan.vercel.app/_next/image?url=%2FGlobeLogo.png&w=256&q=75',
-      alt: 'Bangla News 24 logo',
-      title: 'Bangla News24',
+      logo: 'https://fit-log-workout-library-chi.vercel.app/_next/image?url=%2Flogo.png&w=32&q=75',
+      alt: 'FitLog logo',
+      title: 'FitLog-Workout Library',
       description:
-        'এটি একটি আধুনিক ও responsive full-stack News Platform, যেখানে ব্যবহারকারীরা বিভিন্ন category অনুযায়ী latest news browse এবং বিস্তারিত news পড়তে পারেন। Login ছাড়াই news browsing করা যায়, আর authenticated users-এর জন্য protected news details ও profile management-এর সুবিধা রয়েছে। Email, Google ও GitHub authentication, email verification, password reset এবং secure session management-এর জন্য Better Auth ব্যবহার করা হয়েছে। প্রজেক্টটি Next.js, TypeScript, Tailwind CSS ও MongoDB দিয়ে তৈরি করা হয়েছে এবং Resend-এর মাধ্যমে verification ও password reset email পাঠানোর ব্যবস্থা করা হয়েছে। Responsive UI, loading state, custom 404 page এবং protected routes-এর মাধ্যমে একটি smooth ও secure user experience নিশ্চিত করা হয়েছে।',
-      link: 'https://bangla-news24-roan.vercel.app',
+        "এটি একটি আধুনিক ও responsive Workout Library platform, যেখানে ব্যবহারকারীরা বিভিন্ন workout browse, search এবং duration, calories ও rating অনুযায়ী sort করতে পারেন। প্রতিটি workout-এর details page-এ equipment, difficulty, sets, reps ও ধাপে ধাপে instructions দেখার সুবিধা রয়েছে। ব্যবহারকারীরা পছন্দের workout Today's Plan-এ যুক্ত করতে পারেন (সর্বোচ্চ ৫টি) অথবা Saved list-এ রেখে দিতে পারেন। My Plan page-এ Today's Plan ও Saved আলাদা tab-এ দেখা যায়, যেখানে Exercises, Minutes ও Calories-এর live stats আপডেট হয় এবং workout Mark as Done বা Remove করা যায়। প্রজেক্টটি Next.js (App Router) ও React-এর মাধ্যমে TypeScript ব্যবহার করে তৈরি করা হয়েছে এবং Tailwind CSS দিয়ে একটি dark, minimal ও responsive UI ডিজাইন করা হয়েছে। React Context API ও useReducer ব্যবহার করে plan ও saved state ম্যানেজ করা হয়েছে এবং localStorage-এর মাধ্যমে data persist করা হয়েছে, ফলে page reload করলেও plan হারায় না। React Hot Toast-এর মাধ্যমে প্রতিটি action-এ instant notification দেওয়া হয়েছে, সাথে custom 404 ও error page এবং loading state-এর মাধ্যমে একটি smooth user experience নিশ্চিত করা হয়েছে।",
+      link: 'https://fit-log-workout-library-chi.vercel.app',
     },
     {
       logo: 'https://dev-stack-eta.vercel.app/assets/banner-stack-xf3d4ag0.png',
