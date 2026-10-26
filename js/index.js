@@ -295,7 +295,7 @@ function initExpandableDescriptions(scope) {
       title: 'BPL CricBid',
       description:
         'এটি একটি আধুনিক এবং ইন্টারঅ্যাক্টিভ BPL Player Auction Management Web Application, যেখানে ব্যবহারকারীরা বিভিন্ন ক্রিকেটার সম্পর্কে বিস্তারিত তথ্য দেখতে এবং পছন্দের খেলোয়াড়দের একটি নির্দিষ্ট বাজেটের মধ্যে তাদের স্কোয়াডে যুক্ত করতে পারেন। প্রজেক্টটিতে Available Players ও Selected Players আলাদাভাবে ম্যানেজ করার সুবিধা রয়েছে এবং প্রতিটি খেলোয়াড়ের মূল্য ও নির্বাচনের তথ্য ডায়নামিকভাবে পরিচালনা করা হয়েছে। React.js এবং TypeScript ব্যবহার করে অ্যাপ্লিকেশনটি তৈরি করা হয়েছে, যেখানে Tailwind CSS দিয়ে রেসপনসিভ ও আধুনিক UI ডিজাইন করা হয়েছে। Player Selection, Budget Management, Toast Notification এবং Interactive Components-এর মাধ্যমে একটি বাস্তবসম্মত ক্রিকেট Player Auction-এর অভিজ্ঞতা দেওয়ার চেষ্টা করা হয়েছে।',
-      link: 'https://bpl-dream11-two.vercel.app/',
+      link: 'https://bplceicbid.vercel.app',
     },
 
     {
