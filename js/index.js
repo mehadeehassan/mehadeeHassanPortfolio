@@ -233,6 +233,14 @@ function initExpandableDescriptions(scope) {
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
+      logo: 'https://sebak-event-platform-client-side.vercel.app/icon.svg',
+      alt: 'Sebak',
+      title: 'Sebak',
+      description:
+        'এটি একটি ফুল-স্ট্যাক কমিউনিটি সার্ভিস প্ল্যাটফর্ম, যেখানে সাধারণ মানুষ শীতবস্ত্র বিতরণ, বৃক্ষরোপণ, এলাকা পরিষ্কারের মতো সামাজিক উন্নয়নমূলক ইভেন্ট তৈরি, খুঁজে বের করা ও তাতে যোগ দিতে পারেন। লগইন করা ইউজাররা নিজের ইভেন্ট তৈরি, আপডেট ও ডিলিট করতে পারেন এবং এক ক্লিকে অন্যদের ইভেন্টে জয়েন করতে পারেন; একই ইভেন্টে ডুপ্লিকেট জয়েন প্রতিরোধ করা হয়েছে আর মেয়াদোত্তীর্ণ ইভেন্ট স্বয়ংক্রিয়ভাবে বাদ পড়ে। ফ্রন্টএন্ড তৈরি হয়েছে Next.js (App Router) ও Tailwind CSS দিয়ে, যেখানে ডার্ক/লাইট থিম, লোডিং স্কেলিটন, টোস্ট নোটিফিকেশন ও রেসপনসিভ ডিজাইন রয়েছে। অথেন্টিকেশনের জন্য BetterAuth দিয়ে ইমেইল-পাসওয়ার্ড ও Google লগইন বাস্তবায়ন করা হয়েছে। ব্যাকএন্ড Express 5 ও MongoDB দিয়ে আলাদা রিপোজিটরিতে তৈরি, যেখানে JWT টোকেন JWKS-এর মাধ্যমে যাচাই করা হয় এবং শুধু ইভেন্টের মালিকই এডিট বা ডিলিট করতে পারেন। প্রজেক্টটি Vercel-এ ডিপ্লয় করা হয়েছে।',
+      link: 'https://sebak-event-platform-client-side.vercel.app',
+    },
+    {
       logo: 'https://book-vibe-beryl-six.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffavicon.0_5n8vrnywfp4.png&w=48&q=75',
       alt: 'Book Vibe logo',
       title: 'Book Vibe',
