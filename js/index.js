@@ -233,6 +233,13 @@ function initExpandableDescriptions(scope) {
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
+      logo:'', 
+      alt: 'HireLoop logo',
+      title: 'HireLoop',
+      description: `Seeker, recruiter ও admin-এর জন্য full-stack job platform: job browse ও apply, recruiter dashboard, admin control panel, Stripe-hosted billing ও মাসিক quota, audit log ও in-app notification। Next.js 16, TypeScript, Better Auth, Express ও MongoDB।`,
+      link: '',
+    },
+    {
       logo: 'https://sebak-event-platform-client-side.vercel.app/icon.svg',
       alt: 'Sebak',
       title: 'Sebak',
