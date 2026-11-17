@@ -233,12 +233,12 @@ function initExpandableDescriptions(scope) {
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
-      logo:'', 
+      logo:'https://hire-loop-six-lilac.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75', 
       alt: 'HireLoop logo',
       title: 'HireLoop',
       description: 
         `Job seeker, recruiter ও admin-এর জন্য একটি full-stack job platform। Signup-এর সময় ব্যবহারকারী Job Seeker বা Recruiter বেছে নেয়; Email/Password ও Google দিয়ে sign-in, email verification এবং password reset আছে। Seeker জব browse ও filter করে, জব save করে, profile ও PDF resume দিয়ে apply করে এবং application-এর অবস্থা ট্র্যাক করে। Recruiter job post করে, company page ম্যানেজ করে, application review করে এবং candidate-দের সাথে message করে। Admin user ও role ম্যানেজ করে, job ও company পর্যবেক্ষণ করে, payment দেখে এবং platform settings, branding ও plan limit নিয়ন্ত্রণ করে; প্রতিটি পরিবর্তন audit log-এ লেখা হয় এবং in-app notification পাওয়া যায়। Starter, Growth ও Premium plan-এ মাসিক quota (apply ও job post) আছে, আর billing Stripe-hosted Checkout, Billing Portal ও invoice দিয়ে চলে। Quota, payment ও permission-এর সব business logic backend-এ; MongoDB transaction দিয়ে quota নিরাপদ রাখা হয়েছে এবং Stripe webhook-এ idempotency আছে। Next.js 16 (App Router), TypeScript ও Better Auth frontend-এ, আর Express ও MongoDB backend-এ (Routes → Controller → Service → Repository কাঠামো); short-lived service JWT ও server-side role check দিয়ে সুরক্ষিত।`,
-      link: '',
+      link: 'https://hire-loop-six-lilac.vercel.app',
     },
     {
       logo: 'https://sebak-event-platform-client-side.vercel.app/icon.svg',
