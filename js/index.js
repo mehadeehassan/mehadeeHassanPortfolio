@@ -233,11 +233,18 @@ function initExpandableDescriptions(scope) {
       link: 'https://shops-mehadee-hassan.vercel.app',
     },
     {
-      logo:'https://hire-loop-six-lilac.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75', 
+      logo: '/images/image copy.png',
+      alt: 'Gearly logo',
+      title: 'Gearly',
+      description:
+        'Gearly একটি ফুল-স্ট্যাক Equipment Rental Marketplace, যেখানে Customer-রা বিভিন্ন ধরনের Equipment ব্রাউজ, সার্চ ও ফিল্টার করতে এবং নির্দিষ্ট তারিখ ও পরিমাণ অনুযায়ী Rental Booking করতে পারেন। Owner-রা নিজেদের Equipment Listing পরিচালনা, Booking Management এবং Earnings Track করতে পারেন। অন্যদিকে, Admin-রা একটি Role-Based Dashboard থেকে Users, Equipment, Bookings এবং Platform পরিচালনা করতে পারেন। এতে Equipment Availability Checking, Booking Status Management এবং Stripe-ভিত্তিক Secure Payment System রয়েছে। Customer, Owner এবং Admin-এর জন্য আলাদা Dashboard ও Role-Based Access Control বাস্তবায়ন করা হয়েছে। ফ্রন্টএন্ড তৈরি হয়েছে Next.js 16, TypeScript এবং Better Auth দিয়ে। ব্যাকএন্ডে Node.js, Express.js এবং MongoDB Native Driver ব্যবহার করে RESTful API তৈরি করা হয়েছে। Authentication ও Authorization-এর জন্য JWT ব্যবহার করা হয়েছে এবং Payment Processing পরিচালিত হয়েছে Stripe Checkout-এর মাধ্যমে। Frontend ও Backend উভয়ই Vercel-এ Deploy করা হয়েছে।',
+      link: 'https://gearly-equipment-client.vercel.app',
+    },
+    {
+      logo: 'https://hire-loop-six-lilac.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75',
       alt: 'HireLoop logo',
       title: 'HireLoop',
-      description: 
-        `Job seeker, recruiter ও admin-এর জন্য একটি full-stack job platform। Signup-এর সময় ব্যবহারকারী Job Seeker বা Recruiter বেছে নেয়; Email/Password ও Google দিয়ে sign-in, email verification এবং password reset আছে। Seeker জব browse ও filter করে, জব save করে, profile ও PDF resume দিয়ে apply করে এবং application-এর অবস্থা ট্র্যাক করে। Recruiter job post করে, company page ম্যানেজ করে, application review করে এবং candidate-দের সাথে message করে। Admin user ও role ম্যানেজ করে, job ও company পর্যবেক্ষণ করে, payment দেখে এবং platform settings, branding ও plan limit নিয়ন্ত্রণ করে; প্রতিটি পরিবর্তন audit log-এ লেখা হয় এবং in-app notification পাওয়া যায়। Starter, Growth ও Premium plan-এ মাসিক quota (apply ও job post) আছে, আর billing Stripe-hosted Checkout, Billing Portal ও invoice দিয়ে চলে। Quota, payment ও permission-এর সব business logic backend-এ; MongoDB transaction দিয়ে quota নিরাপদ রাখা হয়েছে এবং Stripe webhook-এ idempotency আছে। Next.js 16 (App Router), TypeScript ও Better Auth frontend-এ, আর Express ও MongoDB backend-এ (Routes → Controller → Service → Repository কাঠামো); short-lived service JWT ও server-side role check দিয়ে সুরক্ষিত।`,
+      description: `Job seeker, recruiter ও admin-এর জন্য একটি full-stack job platform। Signup-এর সময় ব্যবহারকারী Job Seeker বা Recruiter বেছে নেয়; Email/Password ও Google দিয়ে sign-in, email verification এবং password reset আছে। Seeker জব browse ও filter করে, জব save করে, profile ও PDF resume দিয়ে apply করে এবং application-এর অবস্থা ট্র্যাক করে। Recruiter job post করে, company page ম্যানেজ করে, application review করে এবং candidate-দের সাথে message করে। Admin user ও role ম্যানেজ করে, job ও company পর্যবেক্ষণ করে, payment দেখে এবং platform settings, branding ও plan limit নিয়ন্ত্রণ করে; প্রতিটি পরিবর্তন audit log-এ লেখা হয় এবং in-app notification পাওয়া যায়। Starter, Growth ও Premium plan-এ মাসিক quota (apply ও job post) আছে, আর billing Stripe-hosted Checkout, Billing Portal ও invoice দিয়ে চলে। Quota, payment ও permission-এর সব business logic backend-এ; MongoDB transaction দিয়ে quota নিরাপদ রাখা হয়েছে এবং Stripe webhook-এ idempotency আছে। Next.js 16 (App Router), TypeScript ও Better Auth frontend-এ, আর Express ও MongoDB backend-এ (Routes → Controller → Service → Repository কাঠামো); short-lived service JWT ও server-side role check দিয়ে সুরক্ষিত।`,
       link: 'https://hire-loop-six-lilac.vercel.app',
     },
     {
@@ -247,6 +254,14 @@ function initExpandableDescriptions(scope) {
       description:
         'এটি একটি ফুল-স্ট্যাক কমিউনিটি সার্ভিস প্ল্যাটফর্ম, যেখানে সাধারণ মানুষ শীতবস্ত্র বিতরণ, বৃক্ষরোপণ, এলাকা পরিষ্কারের মতো সামাজিক উন্নয়নমূলক ইভেন্ট তৈরি, খুঁজে বের করা ও তাতে যোগ দিতে পারেন। লগইন করা ইউজাররা নিজের ইভেন্ট তৈরি, আপডেট ও ডিলিট করতে পারেন এবং এক ক্লিকে অন্যদের ইভেন্টে জয়েন করতে পারেন; একই ইভেন্টে ডুপ্লিকেট জয়েন প্রতিরোধ করা হয়েছে আর মেয়াদোত্তীর্ণ ইভেন্ট স্বয়ংক্রিয়ভাবে বাদ পড়ে। ফ্রন্টএন্ড তৈরি হয়েছে Next.js (App Router) ও Tailwind CSS দিয়ে, যেখানে ডার্ক/লাইট থিম, লোডিং স্কেলিটন, টোস্ট নোটিফিকেশন ও রেসপনসিভ ডিজাইন রয়েছে। অথেন্টিকেশনের জন্য BetterAuth দিয়ে ইমেইল-পাসওয়ার্ড ও Google লগইন বাস্তবায়ন করা হয়েছে। ব্যাকএন্ড Express 5 ও MongoDB দিয়ে আলাদা রিপোজিটরিতে তৈরি, যেখানে JWT টোকেন JWKS-এর মাধ্যমে যাচাই করা হয় এবং শুধু ইভেন্টের মালিকই এডিট বা ডিলিট করতে পারেন। প্রজেক্টটি Vercel-এ ডিপ্লয় করা হয়েছে।',
       link: 'https://sebak-event-platform-client-side.vercel.app',
+    },
+    {
+      logo: '/images/image.png',
+      alt: 'Doomsday Ready logo',
+      title: 'Doomsday Ready',
+      description:
+        'Doomsday Ready একটি ফুল-স্ট্যাক অ্যাপ্লিকেশন, যা Marvel ভক্তদের Avengers: Doomsday দেখার আগে প্রয়োজনীয় সিনেমাগুলো সঠিক ক্রমানুসারে দেখার পরিকল্পনা তৈরি করতে এবং Opening Night Watch Party আয়োজন করতে সাহায্য করে। ব্যবহারকারীরা সিনেমা যোগ করতে, সিনেমার Prerequisite নির্ধারণ করতে এবং দেখা শেষ হলে Watched Status আপডেট করতে পারেন। Dependency-এর ভিত্তিতে স্বয়ংক্রিয়ভাবে সঠিক Rewatch Order তৈরি করা হয় এবং Circular Dependency শনাক্ত করে প্রতিরোধ করা হয়। Cinema Booking ফিচারে Dynamic Programming Algorithm ব্যবহার করে নির্দিষ্ট সংখ্যক দর্শকের জন্য সর্বনিম্ন Ticket Bundle নির্ধারণ করা হয়। ফ্রন্টএন্ড তৈরি হয়েছে React, JavaScript, Vite এবং Tailwind CSS দিয়ে। ব্যাকএন্ডে Node.js, Express.js এবং MongoDB Native Driver ব্যবহার করে RESTful API তৈরি করা হয়েছে।',
+      link: 'https://doomsday-ready-client-six.vercel.app',
     },
     {
       logo: 'https://book-vibe-beryl-six.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffavicon.0_5n8vrnywfp4.png&w=48&q=75',
